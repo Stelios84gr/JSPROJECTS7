@@ -14,7 +14,7 @@ for (let i = 0; i < arr1.length; i++) {
 }
 
 for (const item of arr1) {
-    console.log(item);                          // traverse με enhanced for
+    console.log(item);                          // traverse με for...of
 }
 
 for (let i = 0; i < grid.length; i++) {
@@ -24,7 +24,7 @@ for (let i = 0; i < grid.length; i++) {
 }
 
 for (const row of grid) {
-    for (const item of row) {                   // 2D array traverse με enhanced for
+    for (const item of row) {                   // 2D array traverse με for...of
         console.log(item);
     }
 }

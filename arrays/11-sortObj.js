@@ -19,5 +19,4 @@ objArray.sort(function(a,b) {
     }
     return a.first.localeCompare(b.first);
 })
-
-console.log(objArray);
+console.log(objArray)

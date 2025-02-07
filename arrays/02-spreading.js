@@ -1,5 +1,5 @@
 const initial = [1, 2, 3]
-const copy = [...initial];
+const copy = [...initial];              // shallow copy
 
 const extended = [0, ...initial, 4];
 const chars = [..."Hello"];

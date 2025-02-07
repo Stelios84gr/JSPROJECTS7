@@ -14,4 +14,4 @@ numbers.sort(function(a, b) {
 })
 
 console.log(numbers);
-console.log(numbers.reverse);
+console.log(numbers.reverse());

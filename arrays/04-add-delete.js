@@ -3,7 +3,7 @@ delete arr[0];              // δεν συνίσταται γιατί δημιο
 
 console.log(arr);
 
-arr.push(5);                // παραμένει ο ίδιος array
+arr.push(5);                // προσθέτει το στοιχείο στο τέλος - παραμένει ο ίδιος array
 arr.push(6, 7);
 console.log(arr);
 
