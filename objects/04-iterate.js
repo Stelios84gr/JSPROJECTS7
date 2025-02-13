@@ -6,6 +6,7 @@ const person = {
 }
 
 const keys = Object.keys(person)
+
 keys.forEach(key => console.log(`key: ${key}, value: ${person[key]}`))
 
 console.log(Object.values(person))
