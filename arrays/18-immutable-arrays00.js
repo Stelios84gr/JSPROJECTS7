@@ -1,8 +1,8 @@
 const numbers = [1, 2, 3, 4]
 
-// these modify the initial array
-numbers.push(5)
-numbers.splice(4, 0, 5)
+// modifies the initial array
+numbers.push(5)         // [1, 2, 3, 4, 5]
+numbers.splice(4, 0, 5) // [1, 2, 3, 4, 5, 5]  
 
 function addToArrayEnd(arr, num) {
     return [...arr, num]
@@ -17,12 +17,12 @@ function addToArrayAtIndex(arr, num, index) {
 }
 
 //  Updates
-numbers.splice(3, 1, 8)
+numbers.splice(3, 1, 8)     // [1, 2, 3, 8]
 
 const updateArray = (arr, newValue) => arr.map(item => newValue)
 
 // Fresh copy
-const updateOneItem = (arr, index, newValue) => arr.map((item, i) => (i === index)) ? newValue : item
+const updateOneItem = (arr, index, newValue) => arr.map((item, i) => (i === index) ? newValue : item)
 
 const updatedNumbers = updateOneItem(numbers, 2, 17)
 console.log(updatedNumbers)
@@ -31,10 +31,9 @@ console.log(updatedNumbers)
 
 // modifies the initial array
 let index = numbers.indexOf(1)
-if (indedx !== -1) numbers.splice(index, 1)
+if (index !== -1) numbers.splice(index, 1)
 
 // fresh copy of deleted array
 const deletedFromArray = (arr, num) => arr.filter(item => item !== num)
-
 
 const deleteByIndex = (arr, index) => [...arr.slice(0, index), ...arr.slice(index + 1)]

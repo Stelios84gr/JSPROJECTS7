@@ -39,5 +39,5 @@ console.log(allTags);
 
 const fruits = ["Apples", "Oranges"]
 for (const [i, fruit] of fruits.entries()) {
-    console.log(`Index: ${index}, Fruit: ${fruit}`)
+    console.log(`Index: ${i}, Fruit: ${fruit}`)
 }

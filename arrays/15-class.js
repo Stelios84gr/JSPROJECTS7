@@ -8,7 +8,7 @@ class ProductAlreadyExistsError extends Error {
 class ProductNotFoundError extends Error {
   constructor(message) {
     super(message);
-    this.cod = "ProductNotFound";
+    this.code = "ProductNotFound";
   }
 }
 
