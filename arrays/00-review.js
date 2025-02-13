@@ -1,6 +1,6 @@
 const cities = ["Athens", "Paris", "Toronto"]
 
-// Add
+Add
 cities.push("London")
 
 let city = cities[0]
@@ -16,7 +16,7 @@ cities.sort((a, b) => a.localeCompare(b, "en"))
 const citiesSorted = cities.slice().sort((a, b) => a.localeCompare(b, "en"))    // όταν δεν θέλουμε να τροποποιήσουμε τον αρχικό πίνακα, shallow copy με το slice και sort αυτόν
 
 // Copy deep copy
-const citiesCopy1 = JSON.parse(JSON.stringify(cities))  // το stringify μετατρέπει ένα object σε string και η parse μετατρέπει το string πίσω σε object δημιουργώντας ένα deep copy
+const citiesCopy1 = JSON.parse(JSON.stringify(cities))  // το stringify μετατρέπει ένα object σε string και η parse μετατρέπει το string πάλι σε object δημιουργώντας ένα deep copy
 
 const cities2 = structuredClone(cities)
 
