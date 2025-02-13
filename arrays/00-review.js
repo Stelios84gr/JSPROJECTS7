@@ -4,11 +4,11 @@ Add
 cities.push("London")
 
 let city = cities[0]
-console.log(city)
+console.log(city)                       // Athens
 
 cities[1] = "London"
 
-cities.forEach(c => console.log(c))
+cities.forEach(c => console.log(c))     // Athens\nParis\nToronto
 
 cities.sort()
 
