@@ -1,4 +1,4 @@
-let color = undefined
+let color;
 
 window.addEventListener('DOMContentLoaded', function() {
   this.document.querySelector('#btn').addEventListener('click', function() {
