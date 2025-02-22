@@ -28,7 +28,7 @@ function decreaseCounter() {
     render()
 }
 function resetCounter() {
-    counter == DEFAULT;
+    counter = DEFAULT;
     render()
 }
 function increaseCounter() {
@@ -51,6 +51,8 @@ function styleCounter(counterDOM) {
     counterDOM.classList.toggle('color-black', counter === 0)
 }
 
+                    // OR
+
 // function styleCounter(counterDOM) {
 //     if (counter = 0) {
 //         counterDOM.style.color = 'black'
@@ -62,7 +64,7 @@ function styleCounter(counterDOM) {
 // }
 
 
-
+           // Initial Non-MVC Architecture Implementation
 
 // let counter = 0;
 
