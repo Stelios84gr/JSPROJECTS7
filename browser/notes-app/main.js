@@ -12,19 +12,18 @@ window.addEventListener('DOMContentLoaded', function() {
     this.setInterval(() => printGRDate(), 1000)
 
     this.document.querySelector('#addNoteBtn').addEventListener('click', function() {
-        onInsertHandler({key: count + 1, note: document.querySelector('#inputNote').value.trim(), softDeleted: false})
+        onInsertHandler({key: count + 1, note: document.querySelector('#inputNote').value.trim(), softDeleted: false})  // same as e.target
     })
 
     this.document.querySelector('#inputNote').addEventListener('keyup', function(e) {
         if (e.key === 'Enter') {
-            onInsertHandler({key: count + 1, note: e.target.value.trim(), softDeleted: false})
+            onInsertHandler({key: count + 1, note: e.target.value.trim(), softDeleted: false})  // same as document.querySelector('#inputNote')
         }
-    
     })
 })
 
 function printGRDate() {
-    const currentDate = new Date()
+    const currentDate = new Date()  // creates a UTC current date based on locale
     const day = currentDate.getDay()
     const date = currentDate.getDate()
     const month = currentDate.getMonth()
@@ -61,13 +60,13 @@ function insertNote(note) {
 }
 
 
-// View
+// View rendering
 
 function renderNotes() {
     const container = document.getElementById('notesWrapper')
     container.innerHTML = notes.map((note) => `<div id="${'noteTemplate' + note.key}" class="flex justify-between items-center px-[10px] py-[2px] border-b border-black">
     <div id="${'noteInfo' + note.key}" class="flex items-center">
-    <input type="checkbox" id="${'noteCheck' + note.key}" onClick="strikeThrough(${note.key})" class="w-[25px] h-[25px] mr-[5px]" ${note.softDeleted ? 'checked': ''}>
+    <input type="checkbox" id="${'noteCheck' + note.key}" onclick="strikeThrough(${note.key})" class="w-[25px] h-[25px] mr-[5px]" ${note.softDeleted ? 'checked': ''}>
     <label id="${'noteTxt' + note.key}" for="${'noteCheck' + note.key}" class="w-[200px] max-h-[150px] leading-[1.2rem] overflow-hidden break-words whitespace-normal text-base ${note.softDeleted ? 'line-through text-gray-500' : ''}">${note.note}</label>
     </div>
     <button type="button" id="${'noteDelBtn' + note.key}" class="w-[35px] h-[35px]" onclick="deleteNote(${note.key})">X</button>
@@ -85,6 +84,7 @@ function strikeThrough(key) {
 
 function deleteNote(key) {
     notes = notes.filter(note => note.key !== key)
+    renderNotes()
 }
 
 
