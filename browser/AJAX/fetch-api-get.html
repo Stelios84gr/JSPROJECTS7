@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>FETCH API GET Request GET Request</h1>
+    <button type="button" onclick="fetchOneObj()">Fetch One Object</button>
+    <p id="responseText"></p>
+
+    <script>
+        function fetchOneObj() {
+        fetch('https://jsonplaceholder.typicode.com/posts/1')           //  2 παράμετροι, η 2η είναι "get" by default και μπορεί να παραλειφθεί
+        .then(response => {
+         if (!response.ok) {        // if response status is not between 200 and 299
+            throw new Error(`HTTP error. Status: ${response.status}`)
+         }
+
+         return response.json()                                         // parse το JSON και το μετατρέπει σε JS object
+        })
+        .then(data => {
+            document.getElementById('responseText').innerHTML = `<b>User ID</b>: ${data.userId} <br> <b>ID</b>: ${data.id} <br> <b>Title</b>: ${data.title} <br> <b>Body</b>: ${data.body}`
+        })
+        .catch(error => console.error("Error: " + error))
+    }
+    </script>
+</body>
+</html>
