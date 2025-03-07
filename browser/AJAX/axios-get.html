@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>AXIOS GET</title>
     <script src="https://cdn.jsdelivr.net/npm/axios@1.8.1/dist/axios.min.js"></script>
 </head>
 <body>
@@ -14,7 +14,7 @@
         function fetchOneObj() {
         axios.get('https://jsonplaceholder.typicode.com/posts/1')
         .then(response => {
-            document.getElementById('responseText').innerHTML = `<b>Title:</b> ${response.data.title}`
+            document.getElementById('responseText').innerHTML = `<b>Title:</b> ${response.data.title}`  // data = body/payload
         })
         .catch(error => console.error("Error: ", error))
     }

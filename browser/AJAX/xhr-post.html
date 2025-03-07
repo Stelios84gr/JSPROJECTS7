@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>XMLHttpRequest POST</title>
+</head>
+<body>
+    <h1>XMLHttpRequest POST Request</h1>
+    <button type="button" onclick="postData()">Create Post</button>
+    <p id="postResponse"></p>
+
+    <script>
+        function postData() {
+            const xhr = new XMLHttpRequest()
+
+            xhr.open('POST', 'https://jsonplaceholder.typicode.com/posts/', true)
+            xhr.timeout = 5000
+            xhr.ontimeout = (e) => onAPIError()
+
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState === 4) {
+                    const regex = /^2\d{2}$/    // 200 - 299
+
+                    if (regex.test(xhr.status)) {       // ελέγχει αν το RegExp ταιριάζει με το xhr.status
+                        const response = JSON.parse(xhr.responseText)
+                        document.getElementById('postResponse').innerHTML = `<bold>Post Created</bold>: ${response.title}`
+                    } else {
+                        document.getElementById('postResponse').innerText = `Error: ${xhr.statusText}`
+                    }
+                }
+            }
+            
+            // ορισμός header
+            xhr.setRequestHeader("Content-Type", "application/json")
+
+            // ορισμός body
+            const data = JSON.stringify({
+                title: "Coding Factory",
+                body: "This is the JavaScript module.",
+                userId: 1
+            })
+
+            // αποστολή του request με τα data για POST
+            xhr.send(data);
+        }
+
+        function onAPIError() {
+            document.getElementById('postResponse').innerText = "Request timed out. Please try again."
+        }
+    </script>
+</body>
+</html>

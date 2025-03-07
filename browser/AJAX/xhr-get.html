@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>XMLHttpRequest GET</title>
 </head>
 <body>
     <h1>XMLHttpRequest GET Request</h1>
@@ -21,8 +21,8 @@
             // event handler that checks for request state changes
             xhr.onreadystatechange = function() {
                 if (xhr.readyState === 4) {                             // 4 = completed
-                    if (xhr.status === 200) {
-                        handleResponse(JSON.parse(xhr.responseText))
+                    if (xhr.status >= 200 && xhr.status < 300) {
+                        handleResponse(JSON.parse(xhr.responseText))    // parse to JS object
                     } else {
                         showError(xhr.statusText)
                     }
