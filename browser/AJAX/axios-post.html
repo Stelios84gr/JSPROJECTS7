@@ -7,7 +7,7 @@
     <script src="https://cdn.jsdelivr.net/npm/axios@1.8.1/dist/axios.min.js"></script>
 </head>
 <body>
-    <h1>Axios Post</h1>
+    <h1>Axios POST</h1>
     <button type="button" onclick="createPost()">Click to send the post</button>
     <p id="axiosResponse"></p>
 
@@ -25,7 +25,7 @@
         })
         .catch(error => {
             console.error("Error: ", error)     // logging
-                document.getElementById('fetchResponse').innerHTML = `Error. ${error.message}`   // user-friendly localized feedback
+            document.getElementById('fetchResponse').innerHTML = `Error. ${error.message}`   // user-friendly localized feedback
         })
        }
     </script>
