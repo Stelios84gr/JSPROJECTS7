@@ -41,7 +41,7 @@
                 <select id="city" name="city" required
                         class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm 
                         focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
-                    <option value="">Select a city</option>
+                    <option value="" disabled selected>Select a city</option>
                 </select>
             </div>
 
@@ -74,9 +74,9 @@
                     {id: 7, name: 'Θεσσαλονίκη'},
                     ]
 
-                    document.getElementById('city').innerHTML = cities
-                                                                .sort(a, b => a.name.localeCompare(b.name))
-                                                                .map(city => `<option value=${city.id}>${city.name}{</option>`)
+                    document.getElementById('city').innerHTML = `<option value="" disabled selected>Επιλέξτε Πόλη</option>` + cities
+                                                                .sort((a, b) => a.name.localeCompare(b.name))
+                                                                .map(city => `<option value="${city.id}">${city.name}</option>`)
                                                                 .join('')
             } catch (error) {
                 console.error('Error fetching cities')
@@ -87,15 +87,15 @@
         event.preventDefault();     // αποτρέπει την default λειτουργία ενός submit button, που είναι, όταν πατηθεί, να στέλνει τα δεδομένα και να κάνει refresh τη φόρμα
 
         const formData = {
-            firstname: document.getElementById('firstname').value,
-            lastname: document.getElementById('lastname').value,
-            vat: document.getElementById('vat').value,
-            cityId: document.getElementById('city')
+            firstname: document.getElementById('firstname').value.trim(),
+            lastname: document.getElementById('lastname').value.trim(),
+            vat: document.getElementById('vat').value.trim(),
+            cityId: document.getElementById('city').value
         }
 
         try {
-            const response = await axios.post('https//api-aueb.gr/teachers', formData)
-            console.log('form submitted successfully', response.data)
+            // const response = await axios.post('https//api.aueb.gr/teachers', formData)
+            // console.log('form submitted successfully', response.data)
             alert('Teacher data submitted successfully' + JSON.stringify(formData))
         } catch (error) {
             console.error(`Error in submitting the form.`)
@@ -106,9 +106,8 @@
 
     document.addEventListener('DOMContentLoaded', () => {
         fetchCities()
-        document.getElementById('teacherForm').addEventListener('submit', () => handleFormSubmit)
+        document.getElementById('teacherForm').addEventListener('submit', handleFormSubmit) // method reference - () => handleFormSubmit()
     })
-    // CHECK AGAIN, HAS ERRORS
     </script>
 </body>
 </html>
